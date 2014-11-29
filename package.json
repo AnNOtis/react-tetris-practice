@@ -1,7 +1,7 @@
 {
-  "name": "testENV",
+  "name": "React Tetris Practice",
   "version": "1.0.0",
-  "description": "",
+  "description": "Implement tetris game with react.js for practice purpose.",
   "main": "index.js",
   "scripts": {
     "start": "npm run serve | npm run dev",
