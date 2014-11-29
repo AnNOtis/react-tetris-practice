@@ -1,0 +1,29 @@
+.tetris{
+  display: fixed;
+  margin: 30px auto;
+  background-color: #AAA;
+  border: 2px solid #333;
+  width: 500px;
+  text-align: center;
+  &:after{
+    display: table;
+    content:'';
+    clear:both;
+  }
+}
+
+.gameboard{
+  float: left;
+  width: 360px;
+  height: 600px;
+  margin: 6px 10px;
+  background-color:#FFF;
+  box-shadow: 0 0 0 2px #333;
+}
+
+.dashboard{
+  float: right;
+  width: 120px;
+  margin: 6px 0;
+}
+

@@ -1,4 +1,6 @@
 'use strict'
 var React = require('react')
-var Hello = require('./hello')
-React.renderComponent(<Hello />, document.getElementById('content'))
+var Tetris = require('./tetris')
+require("./../css/tetris.scss");
+
+React.renderComponent(<Tetris />, document.getElementById('content'))
