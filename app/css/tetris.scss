@@ -17,7 +17,7 @@
   width: 360px;
   height: 600px;
   margin: 6px 10px;
-  background-color:#FFF;
+  background-color: #FFF;
   box-shadow: 0 0 0 2px #333;
 }
 
@@ -27,3 +27,13 @@
   margin: 6px 0;
 }
 
+.column{
+  display: inline-block;
+  width: 10%;
+  height: 100%;
+}
+
+.cell{
+  height: 36px;
+  width: 36px;
+}
