@@ -20,6 +20,7 @@
     "jsx-loader": "^0.12.2",
     "sass-loader": "^0.3.1",
     "style-loader": "^0.8.2",
+    "underscore": "^1.7.0",
     "webpack": "^1.4.13",
     "webpack-dev-server": "^1.6.6"
   }

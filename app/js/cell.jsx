@@ -7,7 +7,8 @@ module.exports = React.createClass({
     var style = {};
     if( color !== 0){
       style["background-color"] = color;
-      style["box-shadow"] = "0 0 0 2px #333";
+      // style["border"] = "2px solid #333";
+      style["box-sizing"] = "border-box";
     }
     return (
       <div className="cell" style={style}>

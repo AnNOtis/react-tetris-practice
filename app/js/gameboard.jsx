@@ -1,6 +1,7 @@
 'user strict'
 
 React = require('react')
+_ = require("underscore");
 Cell = require('./cell')
 module.exports = React.createClass({
   displayName: "Gameboard",
@@ -105,21 +106,20 @@ module.exports = React.createClass({
     setInterval(function() {
       var currentBlock = this.state.currentBlock;
       currentBlock.position[1]++;
+      console.log("!!!!!");
+      console.log(this.state.gridData);
+      console.log("!!!!!");
       this.setState({
         currentBlock: currentBlock
-      })
-      this.setState({
-        gridData: this.generateGridData()
-
       })
     }.bind(this), 1000);
   },
   getInitialGrid: function(){
-    var rowNum = 24;
-    var columnNum = 10;
-    var grid = new Array(columnNum)
+    var rowNum = 10;
+    var columnNum = 24;
+    var grid = new Array(rowNum)
     for (var x = 0; x <= rowNum-1; x++) {
-      grid[x] = new Array(rowNum);
+      grid[x] = new Array(columnNum);
       for (var y = 0; y <= columnNum-1; y++) {
         grid[x][y] = 0
       };
@@ -137,9 +137,6 @@ module.exports = React.createClass({
 
   },
   updateRectangle: function(block){
-    console.log("!!!");
-    console.log(block);
-    console.log("!!!");
     return {
       x1: block.position[0],
       x2: block.position[0] + block.shape[0].length-1,
@@ -153,9 +150,8 @@ module.exports = React.createClass({
     var block = this.state.currentBlock;
     console.log(block);
     var range = this.updateRectangle(block);
-    var gridData = this.state.gridData;
+    var gridData = _.map( this.state.gridData, _.clone);
     var shapeIndexX = 0;
-    console.log(range);
     for (var x = range.x1; x <= range.x2; x++) {
       var shapeIndexY = 0;
       for (var y = range.y1; y <= range.y2; y++) {
@@ -170,10 +166,11 @@ module.exports = React.createClass({
     return gridData;
   },
   render: function(){
+    console.log(this.generateGridData());
     return (
       <div className="gameboard">
         {
-          this.state.gridData.map(function(cols, colsIndex){
+          this.generateGridData().map(function(cols, colsIndex){
             return (
               <div className="column">
                 {cols.map(function(rows, rowsIndex){
