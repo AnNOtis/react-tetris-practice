@@ -17,7 +17,7 @@ module.exports = React.createClass({
     return (
       <div className="tetris">
         <h1>Tetris Game</h1>
-        <Gameboard />
+        <Gameboard xSize={10} ySize={24}/>
         <Dashboard />
       </div>
     );
