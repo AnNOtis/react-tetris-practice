@@ -98,7 +98,8 @@ module.exports = React.createClass({
   },
   componentDidMount: function(){
     this.state.dropInterval = setInterval(function() {
-      this.drop()
+      this.die();
+      this.drop();
     }.bind(this), 500);
     key('up, down, left, right', this.handleKeyDown);
   },
@@ -270,6 +271,39 @@ module.exports = React.createClass({
     }
     block.shape = rotatedBlockShape;
     this.forceUpdate();
+  },
+  die: function(){
+    var linesWillDie = [];
+    for(var y = 0; y<=this.props.ySize-1; y++){
+      var willDie = true;
+      for(var x = 0; x<=this.props.xSize-1; x++){
+        if(this.state.gridData[x][y] === 0){
+          willDie = false;
+          break;
+        }
+      }
+      if(willDie) linesWillDie.push(y);
+    }
+    this.removeLines(linesWillDie);
+  },
+  removeLines: function(deadLines){
+    var temp = this.generate2DArray(this.props.xSize, this.props.ySize);
+    var offset = 0;
+    var index = 0;
+    var liveLines = [];
+    for(var y=this.props.ySize-1; y>=0; y--){
+      if( !_.contains(deadLines, y) ){
+        liveLines.push(y);
+      }
+    }
+
+    for(var y=this.props.ySize-1; y>=0; y--){
+      for(var x=0; x<=this.props.xSize-1; x++){
+        temp[x][y] = this.state.gridData[x][liveLines[index]] || 0;
+      }
+      index++
+    }
+    this.setState({gridData: temp});
   },
   render: function(){
     return (
