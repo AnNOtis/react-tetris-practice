@@ -5,7 +5,9 @@ module.exports = React.createClass({
   render: function(){
     return (
       <div className="dashboard">
-        padding....
+        <div className="score">
+          {this.props.score}
+        </div>
       </div>
     );
   }

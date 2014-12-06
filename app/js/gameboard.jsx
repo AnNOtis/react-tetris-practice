@@ -21,7 +21,7 @@ module.exports = React.createClass({
           [
             [1,1,1,1],
           ],
-        color: "#007C97", //cyan
+        color: "#18D5F2", //cyan
         position: [4,0]
       },
       J:{
@@ -33,7 +33,7 @@ module.exports = React.createClass({
             [0,1],
             [1,1]
           ],
-        color: "#2676CD", //blue
+        color: "#2488F4", //blue
         position: [4,1]
       },
       L:{
@@ -66,7 +66,7 @@ module.exports = React.createClass({
             [1,1],
             [0,1]
           ],
-        color: "#6FBF5D", //green
+        color: "#9CE47E", //green
         position: [4,1]
       },
       T:{
@@ -77,7 +77,7 @@ module.exports = React.createClass({
             [0,1,0],
             [1,1,1]
           ],
-        color: "#BA88CE", //purple
+        color: "#B63DE7", //purple
         position: [4,1]
       },
       Z:{
@@ -303,6 +303,7 @@ module.exports = React.createClass({
       }
       index++
     }
+    this.props.addScore(deadLines.length * 100);
     this.setState({gridData: temp});
   },
   render: function(){

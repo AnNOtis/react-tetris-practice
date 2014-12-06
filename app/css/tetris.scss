@@ -1,9 +1,9 @@
 .tetris{
-  display: fixed;
+  display: inline-block;
+  position: fixed;
   margin: 30px auto;
   background-color: #AAA;
   border: 2px solid #333;
-  width: 500px;
   text-align: center;
   &:after{
     display: table;
@@ -14,9 +14,8 @@
 
 .gameboard{
   float: left;
-  // width: 360px;
-  // height: 600px;
-  margin: 6px 10px;
+  width: 260px;
+  margin: 10px 10px;
   background-color: #FFF;
   box-shadow: 0 0 0 2px #333;
 }
@@ -24,15 +23,33 @@
 .dashboard{
   float: right;
   width: 120px;
-  margin: 6px 0;
+  margin: 10px 15px 10px 5px;
 }
 
 .column{
-  display: inline-block;
+  display: block;
+  float: left;
   width: 10%;
   height: 100%;
+  margin-bottom: -1px;
+}
+.column:first-child{
+  margin-left: -1px;
 }
 
 .cell{
+  display: block;
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  margin: 2px;
+  // box-shadow: 0 0 0 1px #333;
+}
 
+.score{
+  display:block;
+  background-color: #FDFDFD;
+  color: #333;
+  font-size: 30px;
+  padding: 0.5em;
 }
